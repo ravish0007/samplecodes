@@ -1,0 +1,685 @@
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| ACCIDENT           |
+| Accident           |
+| Accident1          |
+| COLLAGE            |
+| COLLEGE12          |
+| COMPANY            |
+| COMPANY1           |
+| COMPANY11          |
+| COMPANY2           |
+| COMPANy            |
+| Clg                |
+| College            |
+| Company            |
+| DEPARTMENT         |
+| DEPT_LOCATION      |
+| EMPLOYEE           |
+| Employee           |
+| Mvsoft             |
+| STUDENT            |
+| UNIVERSITY         |
+| accident           |
+| college            |
+| com                |
+| employee           |
+| marsh              |
+| mysql              |
+| performance_schema |
++--------------------+
+28 rows in set (0.07 sec)
+
+mysql> use EMPLOYEE;
+Database changed
+mysql> show t6ables;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 't6ables' at line 1
+mysql> show tables;
+Empty set (0.00 sec)
+
+mysql> use Employee;
+Database changed
+mysql> show tables;
+Empty set (0.00 sec)
+
+mysql> use employee;
+Database changed
+mysql> show tables;
+Empty set (0.01 sec)
+
+mysql> use COMPANY2;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> c
+mysql> use Company;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> show tables;
++--------------------+
+| Tables_in_Company  |
++--------------------+
+| Department1        |
+| DepartmentLocation |
+| Works_On           |
+| employee1          |
+| project1           |
++--------------------+
+5 rows in set (0.00 sec)
+
+mysql> use COMPANY1;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> use COMPANY1;
+Database changed
+mysql> show tables;
++--------------------+
+| Tables_in_COMPANY1 |
++--------------------+
+| dept_location      |
+| project            |
+| works_on           |
++--------------------+
+3 rows in set (0.00 sec)
+
+mysql> use COMPANY;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> show tables;
++-------------------+
+| Tables_in_COMPANY |
++-------------------+
+| DEPARTMENT        |
+| DLOCATION         |
+| EMPLOYEE          |
+| PROJECT           |
+| WORKSON           |
++-------------------+
+5 rows in set (0.00 sec)
+
+mysql> select *from DEPARTMENT;
+Empty set (0.00 sec)
+
+mysql> select *from EMPLOYEE;
++-----+----------+--------+------------+--------+--------+----------+------+
+| Ssn | Fname    | Lname  | Address    | Sex    | Salary | superssn | Dno  |
++-----+----------+--------+------------+--------+--------+----------+------+
+| 1   | Ramesh   | Kotain | moodabidre | male   | 125000 | NULL     | NULL |
+| 2   | Rony     | scott  | mijar      | female | 65000  | NULL     | NULL |
+| 3   | Rakshith | Oggar  | shimoga    | male   | 64000  | NULL     | NULL |
+| 4   | Karthik  | Sa     | davanagere | male   | 84000  | NULL     | NULL |
+| 5   | Adarsh   | Shetty | Honnali    | male   | 45000  | NULL     | NULL |
++-----+----------+--------+------------+--------+--------+----------+------+
+5 rows in set (0.00 sec)
+
+mysql> update EMPLOYEE set superssn='1' whare Fname='Ramesh';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'whare Fname='Ramesh'' at line 1
+mysql> update EMPLOYEE set superssn='1' where Fname='Ramesh';
+Query OK, 1 row affected (0.13 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update EMPLOYEE set superssn='2' where Fname='Rony';
+Query OK, 1 row affected (0.10 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update EMPLOYEE set superssn='5' where Fname='Rakshith';
+Query OK, 1 row affected (0.11 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update EMPLOYEE set superssn='3' where Fname='Karthik';
+Query OK, 1 row affected (0.10 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update EMPLOYEE set superssn='4' where Fname='Karthik';
+Query OK, 1 row affected (0.10 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update EMPLOYEE set superssn='3' where Fname='Adarsh';
+Query OK, 1 row affected (0.10 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select *from EMPLOYEE;
++-----+----------+--------+------------+--------+--------+----------+------+
+| Ssn | Fname    | Lname  | Address    | Sex    | Salary | superssn | Dno  |
++-----+----------+--------+------------+--------+--------+----------+------+
+| 1   | Ramesh   | Kotain | moodabidre | male   | 125000 | 1        | NULL |
+| 2   | Rony     | scott  | mijar      | female | 65000  | 2        | NULL |
+| 3   | Rakshith | Oggar  | shimoga    | male   | 64000  | 5        | NULL |
+| 4   | Karthik  | Sa     | davanagere | male   | 84000  | 4        | NULL |
+| 5   | Adarsh   | Shetty | Honnali    | male   | 45000  | 3        | NULL |
++-----+----------+--------+------------+--------+--------+----------+------+
+5 rows in set (0.00 sec)
+
+mysql> select *from dEPARTMENT;
+ERROR 1146 (42S02): Table 'COMPANY.dEPARTMENT' doesn't exist
+mysql> select *from DEPARTMENT;
+Empty set (0.00 sec)
+
+mysql> desc DEPARTMENT;
++---------------+-------------+------+-----+---------+-------+
+| Field         | Type        | Null | Key | Default | Extra |
++---------------+-------------+------+-----+---------+-------+
+| Dno           | varchar(20) | NO   | PRI | NULL    |       |
+| Dname         | varchar(20) | YES  |     | NULL    |       |
+| Mgrssn        | varchar(20) | YES  | MUL | NULL    |       |
+| mgrstartedate | date        | YES  |     | NULL    |       |
++---------------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> insert into DEPARTMENT values('1a','Acounts',2,'2017-06-23');
+Query OK, 1 row affected (0.10 sec)
+
+mysql> insert into DEPARTMENT values('2a','HRD',4,'2014-06-23');
+Query OK, 1 row affected (0.11 sec)
+
+mysql> insert into DEPARTMENT values('2a','CyberSec',4,'2014-06-23');
+ERROR 1062 (23000): Duplicate entry '2a' for key 'PRIMARY'
+mysql> insert into DEPARTMENT values('3a','CyberSec',4,'2014-06-23');
+Query OK, 1 row affected (0.11 sec)
+
+mysql> select *from DEPARTMENT;
++-----+----------+--------+---------------+
+| Dno | Dname    | Mgrssn | mgrstartedate |
++-----+----------+--------+---------------+
+| 1a  | Acounts  | 2      | 2017-06-23    |
+| 2a  | HRD      | 4      | 2014-06-23    |
+| 3a  | CyberSec | 4      | 2014-06-23    |
++-----+----------+--------+---------------+
+3 rows in set (0.01 sec)
+
+mysql> update EMPLOYEE set Dno='1a' where Fname='Ramesh';
+Query OK, 1 row affected (0.10 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update EMPLOYEE set Dno='3a' where Fname='Rony';
+Query OK, 1 row affected (0.10 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update EMPLOYEE set Dno='2a' where Fname='Rakshith';
+Query OK, 1 row affected (0.10 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update EMPLOYEE set Dno='1a' where Fname='Karthick';
+Query OK, 0 rows affected (0.01 sec)
+Rows matched: 0  Changed: 0  Warnings: 0
+
+mysql> update EMPLOYEE set Dno='3a' where Fname='Adarsh';
+Query OK, 1 row affected (0.08 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> Select *from table;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'table' at line 1
+mysql> Select *from DEPARTMENT;
++-----+----------+--------+---------------+
+| Dno | Dname    | Mgrssn | mgrstartedate |
++-----+----------+--------+---------------+
+| 1a  | Acounts  | 2      | 2017-06-23    |
+| 2a  | HRD      | 4      | 2014-06-23    |
+| 3a  | CyberSec | 4      | 2014-06-23    |
++-----+----------+--------+---------------+
+3 rows in set (0.00 sec)
+
+mysql> Select *from EMPLOYEE;
++-----+----------+--------+------------+--------+--------+----------+------+
+| Ssn | Fname    | Lname  | Address    | Sex    | Salary | superssn | Dno  |
++-----+----------+--------+------------+--------+--------+----------+------+
+| 1   | Ramesh   | Kotain | moodabidre | male   | 125000 | 1        | 1a   |
+| 2   | Rony     | scott  | mijar      | female | 65000  | 2        | 3a   |
+| 3   | Rakshith | Oggar  | shimoga    | male   | 64000  | 5        | 2a   |
+| 4   | Karthik  | Sa     | davanagere | male   | 84000  | 4        | NULL |
+| 5   | Adarsh   | Shetty | Honnali    | male   | 45000  | 3        | 3a   |
++-----+----------+--------+------------+--------+--------+----------+------+
+5 rows in set (0.00 sec)
+
+mysql> update EMPLOYEE set Dno='1a' where Fname='Karthick';
+Query OK, 0 rows affected (0.00 sec)
+Rows matched: 0  Changed: 0  Warnings: 0
+
+mysql> Select *from EMPLOYEE;
++-----+----------+--------+------------+--------+--------+----------+------+
+| Ssn | Fname    | Lname  | Address    | Sex    | Salary | superssn | Dno  |
++-----+----------+--------+------------+--------+--------+----------+------+
+| 1   | Ramesh   | Kotain | moodabidre | male   | 125000 | 1        | 1a   |
+| 2   | Rony     | scott  | mijar      | female | 65000  | 2        | 3a   |
+| 3   | Rakshith | Oggar  | shimoga    | male   | 64000  | 5        | 2a   |
+| 4   | Karthik  | Sa     | davanagere | male   | 84000  | 4        | NULL |
+| 5   | Adarsh   | Shetty | Honnali    | male   | 45000  | 3        | 3a   |
++-----+----------+--------+------------+--------+--------+----------+------+
+5 rows in set (0.00 sec)
+
+mysql> update EMPLOYEE set Dno='1a' where Fname='Karthik';
+Query OK, 1 row affected (0.10 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> Select *from EMPLOYEE;
++-----+----------+--------+------------+--------+--------+----------+------+
+| Ssn | Fname    | Lname  | Address    | Sex    | Salary | superssn | Dno  |
++-----+----------+--------+------------+--------+--------+----------+------+
+| 1   | Ramesh   | Kotain | moodabidre | male   | 125000 | 1        | 1a   |
+| 2   | Rony     | scott  | mijar      | female | 65000  | 2        | 3a   |
+| 3   | Rakshith | Oggar  | shimoga    | male   | 64000  | 5        | 2a   |
+| 4   | Karthik  | Sa     | davanagere | male   | 84000  | 4        | 1a   |
+| 5   | Adarsh   | Shetty | Honnali    | male   | 45000  | 3        | 3a   |
++-----+----------+--------+------------+--------+--------+----------+------+
+5 rows in set (0.00 sec)
+
+mysql> update EMPLOYEE set Dno='1a' where Fname='Rony';
+Query OK, 1 row affected (0.10 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update EMPLOYEE set Dno='1a' where Fname='Rakshith';
+Query OK, 1 row affected (0.09 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update EMPLOYEE set Dno='1a' where Fname='Karthik';
+Query OK, 0 rows affected (0.10 sec)
+Rows matched: 1  Changed: 0  Warnings: 0
+
+mysql> update EMPLOYEE set Dno='1a' where Fname='Adarsh';
+Query OK, 1 row affected (0.10 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> insert into EMPLOYEE values(5,'Vishal','Sa','Belgam','male','700000',null,null);
+ERROR 1062 (23000): Duplicate entry '5' for key 'PRIMARY'
+mysql> insert into EMPLOYEE values(6,'Vishal','Sa','Belgam','male','700000',null,null);
+Query OK, 1 row affected (0.10 sec)
+
+mysql> insert into EMPLOYEE values(6,'Vishal','Sa','Belgam','male','700000',2,3a);
+ERROR 1054 (42S22): Unknown column '3a' in 'field list'
+mysql> update EMPLOYEE set Dno='2a' where Fname='Vishal';
+Query OK, 1 row affected (0.10 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update EMPLOYEE set superssn=3 where Fname='Vishal';
+Query OK, 1 row affected (0.10 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select *from EMPLOYEE;
++-----+----------+--------+------------+--------+--------+----------+------+
+| Ssn | Fname    | Lname  | Address    | Sex    | Salary | superssn | Dno  |
++-----+----------+--------+------------+--------+--------+----------+------+
+| 1   | Ramesh   | Kotain | moodabidre | male   | 125000 | 1        | 1a   |
+| 2   | Rony     | scott  | mijar      | female | 65000  | 2        | 1a   |
+| 3   | Rakshith | Oggar  | shimoga    | male   | 64000  | 5        | 1a   |
+| 4   | Karthik  | Sa     | davanagere | male   | 84000  | 4        | 1a   |
+| 5   | Adarsh   | Shetty | Honnali    | male   | 45000  | 3        | 1a   |
+| 6   | Vishal   | Sa     | Belgam     | male   | 700000 | 3        | 2a   |
++-----+----------+--------+------------+--------+--------+----------+------+
+6 rows in set (0.00 sec)
+
+mysql> insert into EMPLOYEE values(6,'Marsh','S','Mysur','male','750000',null,null);
+ERROR 1062 (23000): Duplicate entry '6' for key 'PRIMARY'
+mysql> insert into EMPLOYEE values(7,'Marsh','S','Mysur','male','750000',null,null);
+Query OK, 1 row affected (0.11 sec)
+
+mysql> insert into EMPLOYEE values(8,'Bharath','kr','Shimoga','male','800000',null,null);
+Query OK, 1 row affected (0.10 sec)
+
+mysql> insert into EMPLOYEE values(9,'Sandip','k','Bijapur','male','900000',null,null);
+Query OK, 1 row affected (0.10 sec)
+
+mysql> update EMPLOYEE set superssn=4 where Fname='Marsh';
+Query OK, 1 row affected (0.15 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update EMPLOYEE set superssn=3 where Fname='Bharath';
+Query OK, 1 row affected (0.10 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update EMPLOYEE set superssn=1 where Fname='Sandip';
+Query OK, 1 row affected (0.10 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update EMPLOYEE set Dno=3a where Fname='Sandip';
+ERROR 1054 (42S22): Unknown column '3a' in 'field list'
+mysql> update EMPLOYEE set Dno=3a where Fname='Marsh';
+ERROR 1054 (42S22): Unknown column '3a' in 'field list'
+mysql> select *from EMPLOYEE;
++-----+----------+--------+------------+--------+--------+----------+------+
+| Ssn | Fname    | Lname  | Address    | Sex    | Salary | superssn | Dno  |
++-----+----------+--------+------------+--------+--------+----------+------+
+| 1   | Ramesh   | Kotain | moodabidre | male   | 125000 | 1        | 1a   |
+| 2   | Rony     | scott  | mijar      | female | 65000  | 2        | 1a   |
+| 3   | Rakshith | Oggar  | shimoga    | male   | 64000  | 5        | 1a   |
+| 4   | Karthik  | Sa     | davanagere | male   | 84000  | 4        | 1a   |
+| 5   | Adarsh   | Shetty | Honnali    | male   | 45000  | 3        | 1a   |
+| 6   | Vishal   | Sa     | Belgam     | male   | 700000 | 3        | 2a   |
+| 7   | Marsh    | S      | Mysur      | male   | 750000 | 4        | NULL |
+| 8   | Bharath  | kr     | Shimoga    | male   | 800000 | 3        | NULL |
+| 9   | Sandip   | k      | Bijapur    | male   | 900000 | 1        | NULL |
++-----+----------+--------+------------+--------+--------+----------+------+
+9 rows in set (0.00 sec)
+
+mysql> update EMPLOYEE set Dno=3a where Fname='Marsh';
+ERROR 1054 (42S22): Unknown column '3a' in 'field list'
+mysql> update EMPLOYEE set Dno='3a' where Fname='Marsh';
+Query OK, 1 row affected (0.10 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update EMPLOYEE set Dno='3a' where Fname='Bharath';
+Query OK, 1 row affected (0.10 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update EMPLOYEE set Dno='2a' where Fname='Sandip';
+Query OK, 1 row affected (0.10 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select *from EMPLOYEE;
++-----+----------+--------+------------+--------+--------+----------+------+
+| Ssn | Fname    | Lname  | Address    | Sex    | Salary | superssn | Dno  |
++-----+----------+--------+------------+--------+--------+----------+------+
+| 1   | Ramesh   | Kotain | moodabidre | male   | 125000 | 1        | 1a   |
+| 2   | Rony     | scott  | mijar      | female | 65000  | 2        | 1a   |
+| 3   | Rakshith | Oggar  | shimoga    | male   | 64000  | 5        | 1a   |
+| 4   | Karthik  | Sa     | davanagere | male   | 84000  | 4        | 1a   |
+| 5   | Adarsh   | Shetty | Honnali    | male   | 45000  | 3        | 1a   |
+| 6   | Vishal   | Sa     | Belgam     | male   | 700000 | 3        | 2a   |
+| 7   | Marsh    | S      | Mysur      | male   | 750000 | 4        | 3a   |
+| 8   | Bharath  | kr     | Shimoga    | male   | 800000 | 3        | 3a   |
+| 9   | Sandip   | k      | Bijapur    | male   | 900000 | 1        | 2a   |
++-----+----------+--------+------------+--------+--------+----------+------+
+9 rows in set (0.00 sec)
+
+mysql> select *from DLOCATION;
+Empty set (0.00 sec)
+
+mysql> insert into DLOCATION value('1a','Banglur');
+Query OK, 1 row affected (0.09 sec)
+
+mysql> insert into DLOCATION value('2a','Banglur');
+Query OK, 1 row affected (0.09 sec)
+
+mysql> insert into DLOCATION value('3a','Channai');
+Query OK, 1 row affected (0.10 sec)
+
+mysql> select *from PROJECT;
+Empty set (0.00 sec)
+
+mysql> DESC PROJECT;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| Pno       | varchar(20) | NO   | PRI | NULL    |       |
+| Pname     | varchar(20) | YES  |     | NULL    |       |
+| Plocation | varchar(20) | YES  |     | NULL    |       |
+| Dno       | varchar(20) | YES  | MUL | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> insert into PROJECT values('2a','IOT','Mijar',1a);
+ERROR 1054 (42S22): Unknown column '1a' in 'field list'
+mysql> insert into PROJECT values('2a','IOT','Mijar','1a');
+Query OK, 1 row affected (0.10 sec)
+
+mysql> DESC PROJECT;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| Pno       | varchar(20) | NO   | PRI | NULL    |       |
+| Pname     | varchar(20) | YES  |     | NULL    |       |
+| Plocation | varchar(20) | YES  |     | NULL    |       |
+| Dno       | varchar(20) | YES  | MUL | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> select *from PROJECT;
++-----+-------+-----------+------+
+| Pno | Pname | Plocation | Dno  |
++-----+-------+-----------+------+
+| 2a  | IOT   | Mijar     | 1a   |
++-----+-------+-----------+------+
+1 row in set (0.00 sec)
+
+mysql> insert into PROJECT values('2b','Image processing','Mijar',1a);
+ERROR 1054 (42S22): Unknown column '1a' in 'field list'
+mysql> insert into PROJECT values('2b','Image processing','Mijar','1a');
+Query OK, 1 row affected (0.11 sec)
+
+mysql> insert into PROJECT values('3a','Robatics','Manipal','1a');
+Query OK, 1 row affected (0.10 sec)
+
+mysql> insert into PROJECT values('4a','EYanthra','Modabidre','1a');
+Query OK, 1 row affected (0.10 sec)
+
+mysql> insert into PROJECT values('5a','NuralNetwork','Modabidre','2a');
+Query OK, 1 row affected (0.10 sec)
+
+mysql> select *from PROJECT;
++-----+------------------+-----------+------+
+| Pno | Pname            | Plocation | Dno  |
++-----+------------------+-----------+------+
+| 2a  | IOT              | Mijar     | 1a   |
+| 2b  | Image processing | Mijar     | 1a   |
+| 3a  | Robatics         | Manipal   | 1a   |
+| 4a  | EYanthra         | Modabidre | 1a   |
+| 5a  | NuralNetwork     | Modabidre | 2a   |
++-----+------------------+-----------+------+
+5 rows in set (0.00 sec)
+
+mysql> update PROJECT set Pno='1a' where Dno='1a';
+ERROR 1062 (23000): Duplicate entry '1a' for key 'PRIMARY'
+mysql> update PROJECT set Pno='1a' where Pname='IOT';
+Query OK, 1 row affected (0.10 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update PROJECT set Pno='2a' where Pname='Image processing';
+Query OK, 1 row affected (0.10 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select *from PROJECT;
++-----+------------------+-----------+------+
+| Pno | Pname            | Plocation | Dno  |
++-----+------------------+-----------+------+
+| 1a  | IOT              | Mijar     | 1a   |
+| 2a  | Image processing | Mijar     | 1a   |
+| 3a  | Robatics         | Manipal   | 1a   |
+| 4a  | EYanthra         | Modabidre | 1a   |
+| 5a  | NuralNetwork     | Modabidre | 2a   |
++-----+------------------+-----------+------+
+5 rows in set (0.00 sec)
+
+mysql> desc WORKSON;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| Ssn   | varchar(10) | NO   | PRI | NULL    |       |
+| Pno   | varchar(20) | NO   | PRI | NULL    |       |
+| Hours | int(11)     | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+
+mysql> insert into WOEKSON values(1,'1a',1000);
+ERROR 1146 (42S02): Table 'COMPANY.WOEKSON' doesn't exist
+mysql> insert into WORKSON values(1,'1a',1000);
+Query OK, 1 row affected (0.11 sec)
+
+mysql> insert into WORKSON values(2,'1a',500);
+Query OK, 1 row affected (0.09 sec)
+
+mysql> insert into WORKSON values(3,'1a',600);
+Query OK, 1 row affected (0.10 sec)
+
+mysql> insert into WORKSON values(4,'1a',6000);
+Query OK, 1 row affected (0.09 sec)
+
+mysql> insert into WORKSON values(5,'4a',6000);
+Query OK, 1 row affected (0.10 sec)
+
+mysql> insert into WORKSON values(6,'5a',600);
+Query OK, 1 row affected (0.10 sec)
+
+mysql> select *from PROJECT;
++-----+------------------+-----------+------+
+| Pno | Pname            | Plocation | Dno  |
++-----+------------------+-----------+------+
+| 1a  | IOT              | Mijar     | 1a   |
+| 2a  | Image processing | Mijar     | 1a   |
+| 3a  | Robatics         | Manipal   | 1a   |
+| 4a  | EYanthra         | Modabidre | 1a   |
+| 5a  | NuralNetwork     | Modabidre | 2a   |
++-----+------------------+-----------+------+
+5 rows in set (0.00 sec)
+
+mysql> ^C
+mysql> mysql>                                                                                                                                  mysql> [CSegmentation fault (core dumped)
+CSE_B1@dbms37-201:~$ mysql -u root -p
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 4
+Server version: 5.7.20 MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2017, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use Company;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> show tables;
++--------------------+
+| Tables_in_Company  |
++--------------------+
+| Department1        |
+| DepartmentLocation |
+| Works_On           |
+| employee1          |
+| project1           |
++--------------------+
+5 rows in set (0.00 sec)
+
+mysql> use COMPANY;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> show tables;
++-------------------+
+| Tables_in_COMPANY |
++-------------------+
+| DEPARTMENT        |
+| DLOCATION         |
+| EMPLOYEE          |
+| PROJECT           |
+| WORKSON           |
++-------------------+
+5 rows in set (0.00 sec)
+
+mysql> select distinct p.pno from PROJECT p,DEPARTMENT d,EMPLOYEE e
+    -> where p.Dno=d.Dno and d.mgrssn='Rony';
+Empty set (0.02 sec)
+
+mysql> select distinct p.pno from PROJECT p,DEPARTMENT d,EMPLOYEE e where p.Dno=d.Dno and d.mgrssn='Rony';
+Empty set (0.00 sec)
+
+mysql> select distinct p.pno from PROJECT p,DEPARTMENT d,EMPLOYEE e where p.Dno=d.Dno and d.mgrssn='Ramesh';
+Empty set (0.00 sec)
+
+mysql> select * from EMPLOYEE;
++-----+----------+--------+------------+--------+--------+----------+------+
+| Ssn | Fname    | Lname  | Address    | Sex    | Salary | superssn | Dno  |
++-----+----------+--------+------------+--------+--------+----------+------+
+| 1   | Ramesh   | Kotain | moodabidre | male   | 125000 | 1        | 1a   |
+| 2   | Rony     | scott  | mijar      | female | 65000  | 2        | 1a   |
+| 3   | Rakshith | Oggar  | shimoga    | male   | 64000  | 5        | 1a   |
+| 4   | Karthik  | Sa     | davanagere | male   | 84000  | 4        | 1a   |
+| 5   | Adarsh   | Shetty | Honnali    | male   | 45000  | 3        | 1a   |
+| 6   | Vishal   | Sa     | Belgam     | male   | 700000 | 3        | 2a   |
+| 7   | Marsh    | S      | Mysur      | male   | 750000 | 4        | 3a   |
+| 8   | Bharath  | kr     | Shimoga    | male   | 800000 | 3        | 3a   |
+| 9   | Sandip   | k      | Bijapur    | male   | 900000 | 1        | 2a   |
++-----+----------+--------+------------+--------+--------+----------+------+
+9 rows in set (0.00 sec)
+
+mysql> SELECTN * FROM PROJECT;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SELECTN * FROM PROJECT' at line 1
+mysql> SELECT * FROM PROJECT;
++-----+------------------+-----------+------+
+| Pno | Pname            | Plocation | Dno  |
++-----+------------------+-----------+------+
+| 1a  | IOT              | Mijar     | 1a   |
+| 2a  | Image processing | Mijar     | 1a   |
+| 3a  | Robatics         | Manipal   | 1a   |
+| 4a  | EYanthra         | Modabidre | 1a   |
+| 5a  | NuralNetwork     | Modabidre | 2a   |
++-----+------------------+-----------+------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT * FROM DEPARTMENT;
++-----+----------+--------+---------------+
+| Dno | Dname    | Mgrssn | mgrstartedate |
++-----+----------+--------+---------------+
+| 1a  | Acounts  | 2      | 2017-06-23    |
+| 2a  | HRD      | 4      | 2014-06-23    |
+| 3a  | CyberSec | 4      | 2014-06-23    |
++-----+----------+--------+---------------+
+3 rows in set (0.00 sec)
+
+mysql> select distinct p.pno from PROJECT p,DEPARTMENT d,EMPLOYEE e where p.Dno=d.Dno and d.mgrssn=e.ssn and e.lname='scott';
++-----+
+| pno |
++-----+
+| 1a  |
+| 2a  |
+| 3a  |
+| 4a  |
++-----+
+4 rows in set (0.00 sec)
+
+mysql> select distinct p1.Dno from PROJECT p1,WORKSON w,EMPLOYEE e1
+    -> where p1.pno=w.pno
+    -> and e1.ssn=w.ssn and e1.lname='scott';
++------+
+| Dno  |
++------+
+| 1a   |
++------+
+1 row in set (0.00 sec)
+
+mysql> select *from WORKSON;
++-----+-----+-------+
+| Ssn | Pno | Hours |
++-----+-----+-------+
+| 1   | 1a  |  1000 |
+| 2   | 1a  |   500 |
+| 3   | 1a  |   600 |
+| 4   | 1a  |  6000 |
+| 5   | 4a  |  6000 |
+| 6   | 5a  |   600 |
++-----+-----+-------+
+6 rows in set (0.00 sec)
+
+mysql> select distinct p.pno from PROJECT p,DEPARTMENT d,EMPLOYEE e where p.Dno=d.Dno and d.mgrssn=e.ssn and e.lname='scott')UNION(select distinct p1.Dno from PROJECT p1,WORKSON w,EMPLOYEE e1
+    ->     -> where p1.pno=w.pno
+    ->     -> and e1.ssn=w.ssn and e1.lname='scott';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')UNION(select distinct p1.Dno from PROJECT p1,WORKSON w,EMPLOYEE e1
+    -> where' at line 1
+mysql> (select distinct p.pno from PROJECT p,DEPARTMENT d,EMPLOYEE e where p.Dno=d.Dno and d.mgrssn=e.ssn and e.lname='scott')UNION(select distinct p1.Dno from PROJECT p1,WORKSON w,EMPLOYEE e1  where p1.pno=w.pno and e1.ssn=w.ssn and e1.lname='scott');
++------+
+| pno  |
++------+
+| 1a   |
+| 2a   |
+| 3a   |
+| 4a   |
++------+
+4 rows in set (0.00 sec)
+
+mysql> 
+

@@ -56,7 +56,7 @@ e.printStackTrace();
 System.out.println("An error occured");
 }
 
-File file = new File("clientfile.txt");
+File file = new File("client"+filename);
 FileInputStream fileStream = new FileInputStream(file); 
 InputStreamReader input = new InputStreamReader(fileStream); 
 BufferedReader reader = new BufferedReader(input); 
